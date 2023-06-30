@@ -20,6 +20,7 @@ class _EnterOtpPageState extends State<EnterOtpPage> {
 
  @override
   void didChangeDependencies() {
+   EasyLoading.dismiss();
    vId = ModalRoute.of(context)!.settings.arguments as String;
    print(vId);
     super.didChangeDependencies();

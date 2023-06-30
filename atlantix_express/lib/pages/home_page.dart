@@ -2,6 +2,7 @@ import 'package:atlantix_express/pages/history_page.dart';
 import 'package:atlantix_express/pages/my_account_page.dart';
 import 'package:atlantix_express/widgets/home_page_appbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class HomePage extends StatefulWidget {
   static const String routeName = '/home';
@@ -21,6 +22,11 @@ class _HomePageState extends State<HomePage> {
     MyAccountPage(),
   ];
 
+  @override
+  void initState() {
+    EasyLoading.dismiss();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

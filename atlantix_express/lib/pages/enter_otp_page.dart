@@ -82,8 +82,8 @@ class _EnterOtpPageState extends State<EnterOtpPage> {
                 controller: otpController,
                 onChanged: (value) {
                   if(value.length == 6) {
-                    EasyLoading.show(status: 'Please Wait');
-                    _verifyOtp();
+                    /*EasyLoading.show(status: 'Please Wait');
+                    _verifyOtp();*/
                   }
                 },
               ),
@@ -120,12 +120,12 @@ class _EnterOtpPageState extends State<EnterOtpPage> {
   }
 
   void _verifyOtp() {
+   EasyLoading.show(status: 'Please Wait...',dismissOnTap: false);
     PhoneAuthCredential credential = PhoneAuthProvider
         .credential(verificationId: vId, smsCode: otpController.text);
     FirebaseAuth.instance.signInWithCredential(credential)
         .then((credentialUser) {
       if(credentialUser != null) {
-        EasyLoading.dismiss();
         Navigator.pushReplacementNamed(context, HomePage.routeName);
       }
     });

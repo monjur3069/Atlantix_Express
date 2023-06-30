@@ -122,7 +122,7 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
   }
 
   void _verifyPhone() async {
-    await EasyLoading.show(status: 'Loading...',dismissOnTap: false,);
+    await EasyLoading.show(status: 'Sending OTP...',dismissOnTap: false,);
     Future.delayed(Duration(seconds: 5));
      await FirebaseAuth.instance.verifyPhoneNumber(
       timeout: const Duration(seconds: 60),
